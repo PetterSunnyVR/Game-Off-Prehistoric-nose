@@ -1,0 +1,116 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class PlayerController : MonoBehaviour
+{
+
+    Animator animator;
+    Rigidbody2D rgb;
+    SpriteRenderer spriteRenderer;
+
+
+    private bool isDead = false;
+
+    //Move
+    private bool facingRight = true;
+    public float maxSpeed;
+    public bool jumping = false;
+    public float move;
+
+    //Jump
+    bool grounded = false;
+    public float jumpMove;
+    float groundCheckRadius = 0.001f;
+    public LayerMask groundLayer;
+    public Transform groundCheck;
+    public float jumpPower;
+    private float tempXVelocity = 1;
+
+    // Use this for initialization
+    void Start()
+    {
+        rgb = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
+    }
+
+
+
+    private void Update()
+    {
+        move = Input.GetAxis("Horizontal");
+        if (!isDead)
+        {
+            if (move != 0)
+            {
+                if (move > 0 && grounded)
+                {
+                    if (!facingRight)
+                    {
+                        Flip();
+                    }
+                    
+                    rgb.velocity = new Vector2(move * maxSpeed, rgb.velocity.y);
+                }
+                else if (move < 0 && grounded )
+                {
+                    if (facingRight)
+                    {
+                        Flip();
+                    }
+                    
+                    rgb.velocity = new Vector2(move * maxSpeed, rgb.velocity.y);
+                }else if (!grounded && rgb.velocity.x == 0)
+                {
+                    if((move >0 && facingRight)||(move<0 && !facingRight)){
+                        rgb.velocity = new Vector2(move * jumpMove, rgb.velocity.y);
+                        Debug.Log(rgb.velocity.x);
+                    }
+                    
+                }
+                //animator.SetBool("IsRunning", true);
+
+                
+            }
+            
+            animator.SetFloat("MovingSpeed", Mathf.Abs(move));
+
+            if (!jumping && grounded && Input.GetAxis("Jump") > 0)
+            {
+                jumping = true;
+                animator.SetBool("IsGrounded", false);
+                tempXVelocity = move;
+                rgb.velocity = new Vector2(rgb.velocity.x, 0f);
+                rgb.AddForce(new Vector2(0f, jumpPower), ForceMode2D.Impulse);
+                grounded = false;
+
+            }
+
+            grounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
+            animator.SetBool("IsGrounded", grounded);
+            animator.SetFloat("VerticalVelocity", rgb.velocity.y);
+
+        }
+        else
+        {
+            animator.SetBool("Dead", true);
+            rgb.velocity = new Vector2(0f, rgb.velocity.y);
+        }
+
+
+
+    }
+
+    void Flip()
+    {
+        facingRight = !facingRight;
+        spriteRenderer.flipX = !spriteRenderer.flipX;
+
+    }
+
+    public void EndJump()
+    {
+        //jumping = false;
+    }
+}

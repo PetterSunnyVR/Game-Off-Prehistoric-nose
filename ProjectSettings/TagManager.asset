@@ -1,0 +1,86 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Enemy
+  - Weapon
+  - Stats
+  - AspRatGuard
+  - BlackBarLeft
+  - Terrain
+  - Throwable
+  - Boss
+  - BossWall
+  - Platform
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - 
+  - 
+  - Player
+  - Enemy
+  - Obstacle
+  - Ground
+  - NPC
+  - Background
+  - Coins
+  - Weapon
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: Background
+    uniqueID: 1255608505
+    locked: 0
+  - name: Terrain
+    uniqueID: 3977047127
+    locked: 0
+  - name: Obstacles
+    uniqueID: 2991413951
+    locked: 0
+  - name: NPC
+    uniqueID: 4078052555
+    locked: 0
+  - name: Enemies
+    uniqueID: 1836449885
+    locked: 0
+  - name: Items
+    uniqueID: 2926280707
+    locked: 0
+  - name: Player
+    uniqueID: 3100514605
+    locked: 0
+  - name: ItemsBeforePlayer
+    uniqueID: 3577106957
+    locked: 0
+  - name: ElementsFront
+    uniqueID: 3836145637
+    locked: 0
+  - name: BlackBars
+    uniqueID: 3101250065
+    locked: 0
+  - name: UI
+    uniqueID: 2202745949
+    locked: 0

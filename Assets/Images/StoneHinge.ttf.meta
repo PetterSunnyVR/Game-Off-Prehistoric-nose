@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 18dff71b9df50304d8f625e6042b7a61
+timeCreated: 1511446458
+licenseType: Free
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Stone Hinge
+  fontNames:
+  - Stone Hinge
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
