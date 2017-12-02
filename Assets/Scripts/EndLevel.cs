@@ -29,7 +29,11 @@ public class EndLevel : MonoBehaviour {
                 if (boss != null)
                 {
                     GameObject.FindObjectOfType<Boss1>().SetMayhame(true);
+                    GameObject.FindObjectOfType<FinishLevelTrigger>().GetComponent<BoxCollider2D>().isTrigger = false;
                     GetComponent<AudioSource>().Play();
+                }else
+                {
+                    GameObject.FindObjectOfType<FinishLevelTrigger>().GetComponent<BoxCollider2D>().isTrigger = true;
                 }
                 
                 GameObject.FindObjectOfType<Player>().SetMayhame();

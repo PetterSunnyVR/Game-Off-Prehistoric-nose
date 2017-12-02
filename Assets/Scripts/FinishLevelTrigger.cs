@@ -6,14 +6,23 @@ using UnityEngine.SceneManagement;
 public class FinishLevelTrigger : MonoBehaviour {
 
     bool isTrigger = false;
+    GameObject Boss;
 	// Use this for initialization
 	void Start () {
-		
+        Boss = GameObject.FindGameObjectWithTag("Boss");
 	}
 	
 	// Update is called once per frame
 	void Update () {
-        
+        if (Boss == null)
+        {
+            Boss = GameObject.FindGameObjectWithTag("Boss");
+            if(Boss == null)
+            {
+                GameObject.FindObjectOfType<FinishLevelTrigger>().GetComponent<BoxCollider2D>().isTrigger = true;
+            }
+            
+        }
 	}
 
     private void OnTriggerEnter2D(Collider2D collision)

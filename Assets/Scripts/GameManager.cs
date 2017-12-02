@@ -145,7 +145,7 @@ public class GameManager : MonoBehaviour {
         player.gameObject.SetActive(true);
         player.ResetAnimation();
         GameObject.FindObjectOfType<BlockBarScript>().GetComponent<BoxCollider2D>().isTrigger = true;
-
+        GameObject.FindObjectOfType<FinishLevelTrigger>().GetComponent<BoxCollider2D>().isTrigger = true;
 
 
 

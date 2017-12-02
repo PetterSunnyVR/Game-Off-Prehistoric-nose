@@ -191,7 +191,7 @@ public class Boss1 : Enemy {
     {
         startMayhame = val;
 
-        GameObject.FindObjectOfType<FinishLevelTrigger>().GetComponent<BoxCollider2D>().isTrigger = false;
+        
 
         
     }
